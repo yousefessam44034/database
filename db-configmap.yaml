@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: db-config
 data:
-  MYSQL_CONTAINER_NAME: <your-mysql-container-name>
-  MYSQL_USER: <your-mysql-username>
-  MYSQL_PASSWORD: <your-mysql-password>
-  MYSQL_DATABASE: <your-mysql-database-name>
+  MYSQL_CONTAINER_NAME: database-git
+  MYSQL_USER: root
+  MYSQL_PASSWORD: yousef
+  MYSQL_DATABASE: mydatabase
