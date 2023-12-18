@@ -1,14 +1,17 @@
-FROM mysql:latest
+# Use an official MySQL image as a parent image
+FROM mysql:8.0
 
-WORKDIR /app
-
+# Set the environment variables for MySQL
+ENV MYSQL_ROOT_PASSWORD=yousef
 ENV MYSQL_DATABASE=mydatabase
-ENV MYSQL_ROOT_user=root
-ENV MYSQL_ROOT_PASSWORD=mysecretpassword
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=yousef
 
+# Copy the SQL scripts to initialize the database schema
 COPY soo.sql /docker-entrypoint-initdb.d/
 
-COPY . /app
-
+# Expose the MySQL port
 EXPOSE 3306
-ENTRYPOINT ["docker-entrypoint.sh", "mysqld", "--init-file", "/docker-entrypoint-initdb.d/soo.sql"]
+
+# Define the command to run MySQL when the container starts
+CMD ["mysqld"]
