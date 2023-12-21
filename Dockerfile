@@ -4,7 +4,6 @@ FROM mysql:8.0
 # Set the environment variables for MySQL
 ENV MYSQL_ROOT_PASSWORD=yousef
 ENV MYSQL_DATABASE=mydatabase
-ENV MYSQL_USER=root
 ENV MYSQL_PASSWORD=yousef
 
 # Copy the SQL scripts to initialize the database schema
