@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: image-registry.openshift-image-registry.svc:5000/yousefessam44034-dev/database-git:latest
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: yousef
+        - name: MYSQL_DATABASE
+          value: mydatabase
+        - name: MYSQL_PASSWORD
+          value: yousef
+        ports:
+        - containerPort: 3306
